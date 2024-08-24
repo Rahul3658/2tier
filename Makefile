@@ -1,13 +1,13 @@
-# Determine the operating system
+
 OS := $(shell uname)
 
-# Define Docker compose command
+
 DOCKER_COMPOSE := docker-compose
 
-# Define Docker compose service name
+
 SERVICE_NAME := web
 
-# Build target
+
 build:
 ifeq ($(OS),Linux)
 	@echo "Building for Linux"
@@ -37,11 +37,11 @@ ifeq ($(OS),Windows_NT)
 	# Add Windows-specific run commands if you wish :P
 endif
 
-# Stop target
+
 stop:
 	$(DOCKER_COMPOSE) down
 
-# Clean target
+
 clean: stop
 	$(DOCKER_COMPOSE) rm -f
 	docker system prune -f
